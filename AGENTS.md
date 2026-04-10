@@ -20,6 +20,15 @@ Exit the CLI with `exit` or `quit`.
 - Only file: `src/cli_ollama_agent.py`
 - Provides `get_time()` tool (returns local datetime)
 - Dutch default instruction: agent should keep answers short
+- Security via `@agent.tool_plain` decorators (path validation, 10MB limit)
+- Bestandslezen/schrijven via Pydantic AI ReadFile/WriteFile API
+
+## Best Practices
+
+- Gebruik **altijd Pydantic AI methoden** waar mogelijk (RunScript, ReadFile, WriteFile, ListDirectory)
+- **Niet zelf functionaliteit dupliceren** die Pydantic AI al heeft geïmplementeerd
+- Gebruik `@agent.tool_plain` voor custom tools met security checks
+- Padvalidatie en filesize limits zijn verplicht bij file operaties
 
 ## Notes
 

@@ -26,13 +26,13 @@ model = OpenAIModel(
 
 agent = Agent(
     model=model,
-    instructions="Je bent een behulpzame commandline assistent. Houd antwoorden kort.",
+    instructions="Je bent een behulpzame commandline assistent. Gebruik read_file, write_file, en get_time tools als dat van pas komt. Houd antwoorden kort.",
 )
 
 
 @agent.tool_plain
 def read_file(request: ReadFile) -> str:
-    """Leest de inhoud van een bestand."""
+    """Leest volledige inhoud van een bestand op het opgegeven pad."""
     path = Path(request.path).resolve()
 
     if not path.is_relative_to(Path.cwd().resolve()):
@@ -55,7 +55,7 @@ def read_file(request: ReadFile) -> str:
 
 @agent.tool_plain
 def write_file(request: WriteFile) -> str:
-    """Maakt een nieuw bestand."""
+    """Schrijft tekst naar een bestand op opgegeven pad. Retourneert status bericht."""
     path = Path(request.path)
 
     try:
@@ -75,7 +75,7 @@ def write_file(request: WriteFile) -> str:
 
 @agent.tool_plain
 def get_time() -> str:
-    """Geef de lokale tijd terug."""
+    """Geeft de lokale datum en tijd terug."""
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 
