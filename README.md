@@ -12,7 +12,8 @@ Requires Ollama running locally on `http://localhost:11434/v1` with `llama3.2` m
 
 ## Architecture
 
-- `src/cli_ollama_agent.py` - CLI with `get_time()` tool and Dutch instructions
+- `src/cli_ollama_agent.py` - CLI met `get_time()`, `ReadFile`, `WriteFile` tools en Dutch instructions
+- `src/secure_path.py` - Secure path validation (10MB limit, cwd restriction)
 
 ## Exit
 
