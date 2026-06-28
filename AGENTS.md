@@ -5,7 +5,7 @@ Single-file CLI experiment connecting Pydantic AI with Ollama.
 ## Running
 
 ```bash
-python src/cli_ollama_agent.py
+python src/cli_agent.py
 ```
 
 Exit the CLI with `exit` or `quit`.
